@@ -17,23 +17,36 @@ namespace Zarodoga
         {
             InitializeComponent();
         }
-        public void diakUpdate()
-        {
-            Lista.Items.Clear();
-            foreach (diak item in database.getAllDiak())
-            {
-                Lista.Items.Add(item);
-            }
-        }
+     
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            diakUpdate();
+          
         }
 
         private void Lista_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Dock_Click(object sender, EventArgs e)
+        {
+            Program.Dock_Form.ShowDialog();
+        }
+
+        private void Button_Diak_Click(object sender, EventArgs e)
+        {
+            Program.AllDiak.ShowDialog();
+        }
+
+        private void button_ki_be_Click(object sender, EventArgs e)
+        {
+            Program.Be_Ki_Iratkozas.ShowDialog();
         }
     }
 }

@@ -74,8 +74,56 @@ namespace Zarodoga
             Close();
             return list;
         }
+        public void Diak()
+        {
+            cmd.CommandText = "SELECT `Nev`,`Sz_Datum`,`Anyja_Sz_nev`,`Diak_ID`,`osztaly` FROM `diak` WHERE Nev LIKE '%%';  ";
+            Open();
+            using (MySqlDataReader dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
 
-    
+                }
+            }
+            Close();
+        }
+        
+        public List<dock> getAllDock()
+        {
+            List<dock> list = new List<dock>();
+            cmd.CommandText = "SELECT * FROM `dock` JOIN dokumentum USING (Dock_ID)JOIN diak USING (Diak_ID);";
+            Open();
+            using (MySqlDataReader dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    dock dock = new dock(dr.GetInt32("ID"), dr.GetString("Diak_ID"), dr.GetInt32("Dock_ID"), dr.GetString("Nev"), dr.GetString("Dock_Nev")); ;
+                    list.Add(dock);
+                }
+            }
+
+            Close();
+            return list;
+        }
+
+        public List<iratkozas> getAllIrat()
+        {
+            List<iratkozas> list = new List<iratkozas>();
+            cmd.CommandText = " SELECT * FROM `be_ki_iratkozas`JOIN diak USING (Diak_ID)JOIN alt_iskolak USING (Isk_ID);";
+            Open();
+            using (MySqlDataReader dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    iratkozas iratkozas = new iratkozas(dr.GetInt16("id"),dr.GetString("Diak_ID"),dr.GetInt16("Isk_ID"),dr.GetString("Ki_Be"), dr.GetString("Datum"),dr.GetString("Isk_nev"), dr.GetString("Nev") );
+                    list.Add(iratkozas);
+                }
+            }
+
+            Close();
+            return list;
+        }
+
 
     }
 }

@@ -31,7 +31,8 @@ namespace Zarodoga
 
         public override string ToString()
         {
-            return $"{Diak_ID}, {nev},{Sz_Datum},{Anyja_Sz_nev},{osztaly}";
+            return $"{nev},{osztaly}";
         }
     }
+
 }
