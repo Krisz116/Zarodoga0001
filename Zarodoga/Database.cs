@@ -26,7 +26,7 @@ namespace Zarodoga
             }
         }
 
-        private bool Kapcsolat()
+        public bool Kapcsolat()
         {
             try
             {
@@ -40,7 +40,7 @@ namespace Zarodoga
                 return false;
             }
         }
-        private void Open()
+        public void Open()
         {
 
             if (connection.State != System.Data.ConnectionState.Open)
@@ -49,7 +49,7 @@ namespace Zarodoga
             }
         }
 
-        private void Close()
+        public void Close()
         {
 
             if (connection.State != System.Data.ConnectionState.Closed)

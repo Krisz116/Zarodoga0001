@@ -30,13 +30,13 @@
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_IG_szam = new System.Windows.Forms.TextBox();
+            this.textBox_nev = new System.Windows.Forms.TextBox();
+            this.textBox_datum = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_isk_nev = new System.Windows.Forms.ComboBox();
+            this.comboBox_ki_be = new System.Windows.Forms.ComboBox();
             this.Iskolanev = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Szerkeszt = new System.Windows.Forms.Button();
@@ -62,26 +62,26 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Diak IG Szam";
             // 
-            // textBox1
+            // textBox_IG_szam
             // 
-            this.textBox1.Location = new System.Drawing.Point(359, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox_IG_szam.Location = new System.Drawing.Point(359, 70);
+            this.textBox_IG_szam.Name = "textBox_IG_szam";
+            this.textBox_IG_szam.Size = new System.Drawing.Size(170, 20);
+            this.textBox_IG_szam.TabIndex = 2;
             // 
-            // textBox2
+            // textBox_nev
             // 
-            this.textBox2.Location = new System.Drawing.Point(359, 132);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBox_nev.Location = new System.Drawing.Point(359, 132);
+            this.textBox_nev.Name = "textBox_nev";
+            this.textBox_nev.Size = new System.Drawing.Size(170, 20);
+            this.textBox_nev.TabIndex = 3;
             // 
-            // textBox3
+            // textBox_datum
             // 
-            this.textBox3.Location = new System.Drawing.Point(359, 301);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(170, 20);
-            this.textBox3.TabIndex = 4;
+            this.textBox_datum.Location = new System.Drawing.Point(359, 301);
+            this.textBox_datum.Name = "textBox_datum";
+            this.textBox_datum.Size = new System.Drawing.Size(170, 20);
+            this.textBox_datum.TabIndex = 4;
             // 
             // label2
             // 
@@ -103,10 +103,10 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Datum";
             // 
-            // comboBox1
+            // comboBox_isk_nev
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBox_isk_nev.FormattingEnabled = true;
+            this.comboBox_isk_nev.Items.AddRange(new object[] {
             "Bardos Lajos Altalános Iskola",
             "Gönczy Pál Református és Két  Tannyelvű Általános Iskola",
             "Thököly Imre Kéttannyelvű Általános Iskola",
@@ -115,21 +115,21 @@
             "Arany János Magyar-Angol Két Tanítási Nyelvű Általános Iskola ",
             "Diószegi Lajos Általános Iskola",
             "Kövy Sándor Általános Iskola "});
-            this.comboBox1.Location = new System.Drawing.Point(359, 184);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 21);
-            this.comboBox1.TabIndex = 7;
+            this.comboBox_isk_nev.Location = new System.Drawing.Point(359, 184);
+            this.comboBox_isk_nev.Name = "comboBox_isk_nev";
+            this.comboBox_isk_nev.Size = new System.Drawing.Size(170, 21);
+            this.comboBox_isk_nev.TabIndex = 7;
             // 
-            // comboBox2
+            // comboBox_ki_be
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboBox_ki_be.FormattingEnabled = true;
+            this.comboBox_ki_be.Items.AddRange(new object[] {
             "Ki iratkozott",
             "Be iratkozott"});
-            this.comboBox2.Location = new System.Drawing.Point(359, 241);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(170, 21);
-            this.comboBox2.TabIndex = 8;
+            this.comboBox_ki_be.Location = new System.Drawing.Point(359, 241);
+            this.comboBox_ki_be.Name = "comboBox_ki_be";
+            this.comboBox_ki_be.Size = new System.Drawing.Size(170, 21);
+            this.comboBox_ki_be.TabIndex = 8;
             // 
             // Iskolanev
             // 
@@ -168,6 +168,7 @@
             this.Hozzáadd.TabIndex = 12;
             this.Hozzáadd.Text = "Hozzáadd";
             this.Hozzáadd.UseVisualStyleBackColor = true;
+            this.Hozzáadd.Click += new System.EventHandler(this.Hozzáadd_Click);
             // 
             // Töröl
             // 
@@ -188,13 +189,13 @@
             this.Controls.Add(this.Szerkeszt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Iskolanev);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBox_ki_be);
+            this.Controls.Add(this.comboBox_isk_nev);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_datum);
+            this.Controls.Add(this.textBox_nev);
+            this.Controls.Add(this.textBox_IG_szam);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Name = "Be_Ki_iratkozas";
@@ -209,13 +210,13 @@
 
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_IG_szam;
+        private System.Windows.Forms.TextBox textBox_nev;
+        private System.Windows.Forms.TextBox textBox_datum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox_isk_nev;
+        private System.Windows.Forms.ComboBox comboBox_ki_be;
         private System.Windows.Forms.Label Iskolanev;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Szerkeszt;

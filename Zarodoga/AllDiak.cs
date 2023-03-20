@@ -54,5 +54,14 @@ namespace Zarodoga
                 }
             }
         }
+
+        private void button_kereses_torol_Click(object sender, EventArgs e)
+        {
+            textBox_nev.Text = "";
+            textBoxSzdatum.Text = "";
+            textBoxanyjanev.Text = "";
+            textBoxigszam.Text = "";
+            textBoxosztaly.Text = "";
+        }
     }
 }

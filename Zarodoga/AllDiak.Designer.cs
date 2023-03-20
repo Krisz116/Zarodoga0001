@@ -43,6 +43,7 @@
             this.Hozzaadd = new System.Windows.Forms.Button();
             this.Töröl = new System.Windows.Forms.Button();
             this.Keres = new System.Windows.Forms.Button();
+            this.button_kereses_torol = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Lista
@@ -172,19 +173,31 @@
             // Keres
             // 
             this.Keres.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Keres.Location = new System.Drawing.Point(544, 41);
+            this.Keres.Location = new System.Drawing.Point(325, 288);
             this.Keres.Name = "Keres";
-            this.Keres.Size = new System.Drawing.Size(75, 32);
+            this.Keres.Size = new System.Drawing.Size(75, 49);
             this.Keres.TabIndex = 14;
             this.Keres.Text = "Keresés";
             this.Keres.UseVisualStyleBackColor = true;
             this.Keres.Click += new System.EventHandler(this.Keres_Click);
+            // 
+            // button_kereses_torol
+            // 
+            this.button_kereses_torol.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_kereses_torol.Location = new System.Drawing.Point(416, 289);
+            this.button_kereses_torol.Name = "button_kereses_torol";
+            this.button_kereses_torol.Size = new System.Drawing.Size(75, 49);
+            this.button_kereses_torol.TabIndex = 15;
+            this.button_kereses_torol.Text = "Keresés Törlése";
+            this.button_kereses_torol.UseVisualStyleBackColor = true;
+            this.button_kereses_torol.Click += new System.EventHandler(this.button_kereses_torol_Click);
             // 
             // AllDiak
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_kereses_torol);
             this.Controls.Add(this.Keres);
             this.Controls.Add(this.Töröl);
             this.Controls.Add(this.Hozzaadd);
@@ -225,5 +238,6 @@
         private System.Windows.Forms.Button Hozzaadd;
         private System.Windows.Forms.Button Töröl;
         private System.Windows.Forms.Button Keres;
+        private System.Windows.Forms.Button button_kereses_torol;
     }
 }
