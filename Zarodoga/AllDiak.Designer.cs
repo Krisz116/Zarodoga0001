@@ -142,9 +142,9 @@
             // Szerkeszt
             // 
             this.Szerkeszt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Szerkeszt.Location = new System.Drawing.Point(710, 18);
+            this.Szerkeszt.Location = new System.Drawing.Point(701, 18);
             this.Szerkeszt.Name = "Szerkeszt";
-            this.Szerkeszt.Size = new System.Drawing.Size(75, 32);
+            this.Szerkeszt.Size = new System.Drawing.Size(84, 32);
             this.Szerkeszt.TabIndex = 11;
             this.Szerkeszt.Text = "Szerkeszt";
             this.Szerkeszt.UseVisualStyleBackColor = true;
@@ -152,9 +152,9 @@
             // Hozzaadd
             // 
             this.Hozzaadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Hozzaadd.Location = new System.Drawing.Point(710, 62);
+            this.Hozzaadd.Location = new System.Drawing.Point(701, 62);
             this.Hozzaadd.Name = "Hozzaadd";
-            this.Hozzaadd.Size = new System.Drawing.Size(75, 35);
+            this.Hozzaadd.Size = new System.Drawing.Size(84, 35);
             this.Hozzaadd.TabIndex = 12;
             this.Hozzaadd.Text = "Hozzádd";
             this.Hozzaadd.UseVisualStyleBackColor = true;
@@ -163,9 +163,9 @@
             // Töröl
             // 
             this.Töröl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Töröl.Location = new System.Drawing.Point(710, 111);
+            this.Töröl.Location = new System.Drawing.Point(701, 111);
             this.Töröl.Name = "Töröl";
-            this.Töröl.Size = new System.Drawing.Size(75, 32);
+            this.Töröl.Size = new System.Drawing.Size(84, 32);
             this.Töröl.TabIndex = 13;
             this.Töröl.Text = "Töröl";
             this.Töröl.UseVisualStyleBackColor = true;

@@ -12,6 +12,7 @@ namespace Zarodoga
     {
         static public MySqlCommand cmd;
         static public MySqlConnection connection;
+       
         public Database(string server = "localhost", string user = "root", string password = "", string db = "zaro")
         {
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
@@ -124,6 +125,58 @@ namespace Zarodoga
             return list;
         }
 
+        public void Alt_Insert() 
+        {
+            Kapcsolat();
+            Open();
+            
+            string altisk = "";
+            cmd.CommandText = "SELECT `Isk_ID` FROM `alt_iskolak` WHERE `Isk_nev` = @Isk_nev;";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Isk_nev", Program.Be_Ki_Iratkozas.comboBox_isk_nev.Text);
+            using (MySqlDataReader dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    altisk = dr.GetString("Isk_ID");
+
+                }
+            }
+
+            cmd.CommandText = "INSERT INTO `be_ki_iratkozas`(`Diak_ID`, `Isk_ID`, `Ki_Be`, `Datum`) VALUES (@Diak_ID, @Isk_ID, @Ki_Be, @Datum)";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Diak_ID", Program.Be_Ki_Iratkozas.textBox_IG_szam.Text);
+            cmd.Parameters.AddWithValue("@Isk_ID", altisk);
+            cmd.Parameters.AddWithValue("@Ki_Be", Program.Be_Ki_Iratkozas.comboBox_ki_be.Text);
+            cmd.Parameters.AddWithValue("@Datum", Program.Be_Ki_Iratkozas.textBox_datum.Text);
+
+
+
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Sikeres adat rögzítés");
+                    Program.Be_Ki_Iratkozas.textBox_IG_szam.Text = "";
+                    Program.Be_Ki_Iratkozas.textBox_nev.Text = "";
+                    Program.Be_Ki_Iratkozas.comboBox_isk_nev.Text = "";
+                    Program.Be_Ki_Iratkozas.comboBox_ki_be.Text = "";
+                    Program.Be_Ki_Iratkozas.textBox_datum.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Sikertelen adat rögzítés");
+
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            Close();
+
+        }
 
     }
 }

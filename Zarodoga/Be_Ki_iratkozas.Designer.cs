@@ -210,17 +210,17 @@
 
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox_IG_szam;
-        private System.Windows.Forms.TextBox textBox_nev;
-        private System.Windows.Forms.TextBox textBox_datum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox_isk_nev;
-        private System.Windows.Forms.ComboBox comboBox_ki_be;
         private System.Windows.Forms.Label Iskolanev;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Szerkeszt;
         private System.Windows.Forms.Button Hozzáadd;
         private System.Windows.Forms.Button Töröl;
+        public System.Windows.Forms.TextBox textBox_IG_szam;
+        public System.Windows.Forms.TextBox textBox_datum;
+        public System.Windows.Forms.ComboBox comboBox_isk_nev;
+        public System.Windows.Forms.ComboBox comboBox_ki_be;
+        public System.Windows.Forms.TextBox textBox_nev;
     }
 }

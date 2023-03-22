@@ -14,11 +14,12 @@ namespace Zarodoga
 {
     public partial class Be_Ki_iratkozas : Form
     {
-        Database database = new Database();
-        static public MySqlCommand cmd;
-        static public MySqlConnection connection;
-        
-       
+        Database Database = new Database();
+        static public MySqlCommand cmd = Database.cmd;
+        static public MySqlConnection connection = Database.connection;
+
+
+
 
         public Be_Ki_iratkozas()
         {
@@ -27,7 +28,7 @@ namespace Zarodoga
         public void iratUpdate()
         {
             listBox1.Items.Clear();
-            foreach (iratkozas item in database.getAllIrat())
+            foreach (iratkozas item in Database.getAllIrat())
             {
                 listBox1.Items.Add(item);
             }
@@ -36,10 +37,12 @@ namespace Zarodoga
         private void Be_Ki_iratkozas_Load(object sender, EventArgs e)
         {
             iratUpdate();
+            Database.Kapcsolat();
         }
 
         private void Hozzáadd_Click(object sender, EventArgs e)
         {
+           
             
             
             if (string.IsNullOrEmpty(textBox_IG_szam.Text))
@@ -48,52 +51,19 @@ namespace Zarodoga
                 textBox_IG_szam.Focus();
                 return;
             }
-            if (string.IsNullOrEmpty(textBox_nev.Text))
-            {
-                MessageBox.Show("Adja meg a diák nevét!");
-                textBox_nev.Focus();
-                return;
-            }
+        
+        
             if (string.IsNullOrEmpty(comboBox_isk_nev.Text))
             {
                 MessageBox.Show("Adja meg az Iskola nevét");
                 comboBox_isk_nev.Focus();
                 return;
             }
-            Kapcsolat();
-            database.Open();
-            cmd.CommandText = "INSERT INTO `be_ki_iratkozas`(`Diak_ID`, `Isk_ID`, `Ki_Be`, `Datum`) VALUES (@Diak_ID, @Isk_ID, @Ki_Be, @Datum)";
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@Diak_ID",textBox_IG_szam);
-            cmd.Parameters.AddWithValue("@Isk_ID", comboBox_isk_nev.Text);
-            cmd.Parameters.AddWithValue("@Ki_Be",comboBox_ki_be.Text);
-            cmd.Parameters.AddWithValue("@Datum",textBox_datum.Text);
-            
 
             
-            try
-            {
-                if (cmd.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Sikeres adat rögzítés");
-                    textBox_IG_szam.Text = "";
-                    textBox_nev.Text = "";
-                    comboBox_isk_nev.Text = "";
-                    comboBox_ki_be.Text = "";
-                    textBox_datum.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("Sikertelen adat rögzítés");
-                  
+           
 
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            Close();
+            Database.Alt_Insert();
             
         }
     }
