@@ -29,6 +29,15 @@ namespace Zarodoga
                 Lista.Items.Add(item);
             }
         }
+        public void egydiak() 
+        {
+            Lista.Items.Clear();
+            foreach (diak item in database.getAllDiak())
+            {
+                if (item.Nev.Contains(textBox_nev.Text))
+                Lista.Items.Add(item);
+            }
+        }
 
 
 
@@ -40,54 +49,26 @@ namespace Zarodoga
 
         private void Hozzaadd_Click(object sender, EventArgs e)
         {
-            database.Kapcsolat();
-            database.Open();
-
-            cmd.CommandText = "INSERT INTO `diak`(`Nev`, `Sz_Datum`, `Anyja_Sz_nev`, `Diak_ID`, `osztaly`) VALUES (@nev,@sz_datum,@anyja_sz_nev,@diakid,@osztaly)";
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@nev",textBox_nev.Text);
-            cmd.Parameters.AddWithValue("@sz_datum",textBoxSzdatum.Text);
-            cmd.Parameters.AddWithValue("anyja_sz_nev",textBoxanyjanev.Text);
-            cmd.Parameters.AddWithValue("@diakid",textBoxigszam.Text);
-            cmd.Parameters.AddWithValue("@osztaly",textBoxosztaly.Text);
-            try
-            {
-                if (cmd.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Sikeres adat rögzítés");
-                    textBox_nev.Text = "";
-                    textBoxSzdatum.Text = "";
-                    textBoxanyjanev.Text = "";
-                    textBoxigszam.Text = "";
-                    textBoxosztaly.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("Sikertelen adat rögzítés");
-
-
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            Close();
+            database.Diak_Insert();
         }
 
         private void Keres_Click(object sender, EventArgs e)
         {
-            foreach (diak diak in database.getAllDiak())
-            {
-                if (textBox_nev.Text == diak.Nev)
-                {
-                    textBoxSzdatum.Text = diak.Sz_Datum1;
-                    textBoxanyjanev.Text = diak.Anyja_Sz_nev1;
-                    textBoxigszam.Text = diak.Diak_ID1;
-                    textBoxosztaly.Text = diak.Osztaly;
+            //  foreach (diak diak in database.getAllDiak())
+            //{
+            //    if (textBox_nev.Text == diak.Nev)
+            //  {
+            //      textBoxSzdatum.Text = diak.Sz_Datum1;
+            //    textBoxanyjanev.Text = diak.Anyja_Sz_nev1;
+            //  textBoxigszam.Text = diak.Diak_ID1;
+            // textBoxosztaly.Text = diak.Osztaly;
 
-                }
-            }
+            //}
+            //}
+
+            egydiak();
+      
+
         }
 
         private void button_kereses_torol_Click(object sender, EventArgs e)
@@ -97,6 +78,28 @@ namespace Zarodoga
             textBoxanyjanev.Text = "";
             textBoxigszam.Text = "";
             textBoxosztaly.Text = "";
+        }
+
+        private void Töröl_Click(object sender, EventArgs e)
+        {
+            database.Diak_Delete();
+        }
+
+        private void Szerkeszt_Click(object sender, EventArgs e)
+        {
+            database.Diak_Update();
+        }
+
+        private void Lista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Lista.SelectedItem is diak kivalasztott_diak)
+            {
+                textBox_nev.Text = kivalasztott_diak.Nev;
+                textBoxSzdatum.Text = kivalasztott_diak.Sz_Datum1;
+                textBoxanyjanev.Text = kivalasztott_diak.Anyja_Sz_nev1;
+                textBoxigszam.Text = kivalasztott_diak.Diak_ID1;
+                textBoxosztaly.Text = kivalasztott_diak.Osztaly;
+            }
         }
     }
 }

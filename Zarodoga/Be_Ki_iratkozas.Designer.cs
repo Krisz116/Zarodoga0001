@@ -42,6 +42,8 @@
             this.Szerkeszt = new System.Windows.Forms.Button();
             this.Hozzáadd = new System.Windows.Forms.Button();
             this.Töröl = new System.Windows.Forms.Button();
+            this.button_kereses = new System.Windows.Forms.Button();
+            this.button_keresestorol = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -51,6 +53,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(194, 368);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -159,6 +162,7 @@
             this.Szerkeszt.TabIndex = 11;
             this.Szerkeszt.Text = "Szerkeszt";
             this.Szerkeszt.UseVisualStyleBackColor = true;
+            this.Szerkeszt.Click += new System.EventHandler(this.Szerkeszt_Click);
             // 
             // Hozzáadd
             // 
@@ -178,12 +182,35 @@
             this.Töröl.TabIndex = 13;
             this.Töröl.Text = "Töröl";
             this.Töröl.UseVisualStyleBackColor = true;
+            this.Töröl.Click += new System.EventHandler(this.Töröl_Click);
+            // 
+            // button_kereses
+            // 
+            this.button_kereses.Location = new System.Drawing.Point(359, 341);
+            this.button_kereses.Name = "button_kereses";
+            this.button_kereses.Size = new System.Drawing.Size(75, 39);
+            this.button_kereses.TabIndex = 14;
+            this.button_kereses.Text = "Keresés";
+            this.button_kereses.UseVisualStyleBackColor = true;
+            this.button_kereses.Click += new System.EventHandler(this.button_kereses_Click);
+            // 
+            // button_keresestorol
+            // 
+            this.button_keresestorol.Location = new System.Drawing.Point(440, 341);
+            this.button_keresestorol.Name = "button_keresestorol";
+            this.button_keresestorol.Size = new System.Drawing.Size(75, 39);
+            this.button_keresestorol.TabIndex = 15;
+            this.button_keresestorol.Text = "Keresés Törlése";
+            this.button_keresestorol.UseVisualStyleBackColor = true;
+            this.button_keresestorol.Click += new System.EventHandler(this.button_keresestorol_Click);
             // 
             // Be_Ki_iratkozas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_keresestorol);
+            this.Controls.Add(this.button_kereses);
             this.Controls.Add(this.Töröl);
             this.Controls.Add(this.Hozzáadd);
             this.Controls.Add(this.Szerkeszt);
@@ -222,5 +249,7 @@
         public System.Windows.Forms.ComboBox comboBox_isk_nev;
         public System.Windows.Forms.ComboBox comboBox_ki_be;
         public System.Windows.Forms.TextBox textBox_nev;
+        private System.Windows.Forms.Button button_kereses;
+        private System.Windows.Forms.Button button_keresestorol;
     }
 }

@@ -53,6 +53,7 @@
             this.Lista.Name = "Lista";
             this.Lista.Size = new System.Drawing.Size(175, 407);
             this.Lista.TabIndex = 0;
+            this.Lista.SelectedIndexChanged += new System.EventHandler(this.Lista_SelectedIndexChanged);
             // 
             // textBox_nev
             // 
@@ -148,6 +149,7 @@
             this.Szerkeszt.TabIndex = 11;
             this.Szerkeszt.Text = "Szerkeszt";
             this.Szerkeszt.UseVisualStyleBackColor = true;
+            this.Szerkeszt.Click += new System.EventHandler(this.Szerkeszt_Click);
             // 
             // Hozzaadd
             // 
@@ -169,6 +171,7 @@
             this.Töröl.TabIndex = 13;
             this.Töröl.Text = "Töröl";
             this.Töröl.UseVisualStyleBackColor = true;
+            this.Töröl.Click += new System.EventHandler(this.Töröl_Click);
             // 
             // Keres
             // 
@@ -224,11 +227,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox Lista;
-        private System.Windows.Forms.TextBox textBox_nev;
-        private System.Windows.Forms.TextBox textBoxSzdatum;
-        private System.Windows.Forms.TextBox textBoxanyjanev;
-        private System.Windows.Forms.TextBox textBoxigszam;
-        private System.Windows.Forms.TextBox textBoxosztaly;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -239,5 +237,10 @@
         private System.Windows.Forms.Button Töröl;
         private System.Windows.Forms.Button Keres;
         private System.Windows.Forms.Button button_kereses_torol;
+        public System.Windows.Forms.TextBox textBox_nev;
+        public System.Windows.Forms.TextBox textBoxSzdatum;
+        public System.Windows.Forms.TextBox textBoxanyjanev;
+        public System.Windows.Forms.TextBox textBoxigszam;
+        public System.Windows.Forms.TextBox textBoxosztaly;
     }
 }

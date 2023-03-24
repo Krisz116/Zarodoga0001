@@ -30,14 +30,16 @@
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_update = new System.Windows.Forms.Button();
+            this.button_torol = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_nev = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox_dock_nev = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_ig_szam = new System.Windows.Forms.TextBox();
+            this.button_keres = new System.Windows.Forms.Button();
+            this.button_keresestorlese = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -47,6 +49,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(248, 433);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -56,24 +59,27 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Hozzáadd";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // button_update
             // 
-            this.button2.Location = new System.Drawing.Point(640, 26);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Szerkeszt";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_update.Location = new System.Drawing.Point(640, 26);
+            this.button_update.Name = "button_update";
+            this.button_update.Size = new System.Drawing.Size(118, 23);
+            this.button_update.TabIndex = 2;
+            this.button_update.Text = "Szerkeszt";
+            this.button_update.UseVisualStyleBackColor = true;
+            this.button_update.Click += new System.EventHandler(this.button_update_Click);
             // 
-            // button3
+            // button_torol
             // 
-            this.button3.Location = new System.Drawing.Point(640, 132);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 22);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Töröl";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_torol.Location = new System.Drawing.Point(640, 116);
+            this.button_torol.Name = "button_torol";
+            this.button_torol.Size = new System.Drawing.Size(118, 22);
+            this.button_torol.TabIndex = 3;
+            this.button_torol.Text = "Töröl";
+            this.button_torol.UseVisualStyleBackColor = true;
+            this.button_torol.Click += new System.EventHandler(this.button_torol_Click);
             // 
             // label1
             // 
@@ -85,12 +91,12 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Név";
             // 
-            // textBox2
+            // textBox_nev
             // 
-            this.textBox2.Location = new System.Drawing.Point(374, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBox_nev.Location = new System.Drawing.Point(374, 71);
+            this.textBox_nev.Name = "textBox_nev";
+            this.textBox_nev.Size = new System.Drawing.Size(177, 20);
+            this.textBox_nev.TabIndex = 6;
             // 
             // label2
             // 
@@ -102,18 +108,18 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Dock_Név";
             // 
-            // comboBox1
+            // comboBox_dock_nev
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBox_dock_nev.FormattingEnabled = true;
+            this.comboBox_dock_nev.Items.AddRange(new object[] {
             "Of_jell",
             "Viszajell_lap",
             "Hianyzas",
             "Elhelyezes_Ugy"});
-            this.comboBox1.Location = new System.Drawing.Point(374, 116);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 21);
-            this.comboBox1.TabIndex = 10;
+            this.comboBox_dock_nev.Location = new System.Drawing.Point(374, 116);
+            this.comboBox_dock_nev.Name = "comboBox_dock_nev";
+            this.comboBox_dock_nev.Size = new System.Drawing.Size(177, 21);
+            this.comboBox_dock_nev.TabIndex = 10;
             // 
             // label4
             // 
@@ -125,26 +131,48 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Diak IG Szam";
             // 
-            // textBox3
+            // textBox_ig_szam
             // 
-            this.textBox3.Location = new System.Drawing.Point(374, 31);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(177, 20);
-            this.textBox3.TabIndex = 12;
+            this.textBox_ig_szam.Location = new System.Drawing.Point(374, 31);
+            this.textBox_ig_szam.Name = "textBox_ig_szam";
+            this.textBox_ig_szam.Size = new System.Drawing.Size(177, 20);
+            this.textBox_ig_szam.TabIndex = 12;
+            // 
+            // button_keres
+            // 
+            this.button_keres.Location = new System.Drawing.Point(374, 170);
+            this.button_keres.Name = "button_keres";
+            this.button_keres.Size = new System.Drawing.Size(75, 39);
+            this.button_keres.TabIndex = 13;
+            this.button_keres.Text = "Keresés";
+            this.button_keres.UseVisualStyleBackColor = true;
+            this.button_keres.Click += new System.EventHandler(this.button_keres_Click);
+            // 
+            // button_keresestorlese
+            // 
+            this.button_keresestorlese.Location = new System.Drawing.Point(476, 170);
+            this.button_keresestorlese.Name = "button_keresestorlese";
+            this.button_keresestorlese.Size = new System.Drawing.Size(75, 39);
+            this.button_keresestorlese.TabIndex = 14;
+            this.button_keresestorlese.Text = "Keresés törlése";
+            this.button_keresestorlese.UseVisualStyleBackColor = true;
+            this.button_keresestorlese.Click += new System.EventHandler(this.button_keresestorlese_Click);
             // 
             // Dock_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.button_keresestorlese);
+            this.Controls.Add(this.button_keres);
+            this.Controls.Add(this.textBox_ig_szam);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBox_dock_nev);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox_nev);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button_torol);
+            this.Controls.Add(this.button_update);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Name = "Dock_Form";
@@ -158,14 +186,16 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_nev;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button_torol;
+        public System.Windows.Forms.Button button_update;
+        public System.Windows.Forms.ComboBox comboBox_dock_nev;
+        public System.Windows.Forms.TextBox textBox_ig_szam;
+        private System.Windows.Forms.Button button_keres;
+        private System.Windows.Forms.Button button_keresestorlese;
     }
 }

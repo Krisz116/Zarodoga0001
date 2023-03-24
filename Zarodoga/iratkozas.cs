@@ -37,7 +37,7 @@ namespace Zarodoga
 
         public override string ToString()
         {
-            return $"{Nev}, {Be_Ki}iratkozott";
+            return $"{Nev},{Be_Ki}iratkozott";
         }
     }
 }
