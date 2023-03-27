@@ -132,13 +132,13 @@ namespace Zarodoga
             Close();
             return list;
         }
-        string altisk = "";
+ 
         public void Be_Ki_Insert() 
         {
             Kapcsolat();
             Open();
-            
-           
+            int altisk = 0;
+
             cmd.CommandText = "SELECT `Isk_ID` FROM `alt_iskolak` WHERE `Isk_nev` = @Isk_nev;";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Isk_nev", Program.Be_Ki_Iratkozas.comboBox_isk_nev.SelectedItem);
@@ -146,7 +146,7 @@ namespace Zarodoga
             {
                 while (dr.Read())
                 {
-                    altisk = dr.GetString("Isk_ID");
+                    altisk = dr.GetInt32("Isk_ID");
 
                 }
             }
@@ -221,14 +221,27 @@ namespace Zarodoga
         {
             Kapcsolat();
             Open();
+            int altisk = 0;
+
+            cmd.CommandText = "SELECT `Isk_ID` FROM `alt_iskolak` WHERE `Isk_nev` = @Isk_nev;";
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@diakid1", Program.Be_Ki_Iratkozas.textBox_IG_szam.Text);
-            cmd.CommandText = "UPDATE `be_ki_iratkozas` SET `Diak_ID`='@diakid',`Isk_ID`='@altisk',`Ki_Be`='@ki_be',`Datum`='@datum' WHERE `Diak_ID` = @diakid1";
+            cmd.Parameters.AddWithValue("@Isk_nev", Program.Be_Ki_Iratkozas.comboBox_isk_nev.SelectedItem);
+            using (MySqlDataReader dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    altisk = dr.GetInt32("Isk_ID");
+
+                }
+            }
+            cmd.Parameters.Clear();
+            string diakid = Program.Be_Ki_Iratkozas.textBox_IG_szam.Text;
+            cmd.CommandText =  $"UPDATE `be_ki_iratkozas` SET `Diak_ID`=@diakid,`Isk_ID`=@altisk,`Ki_Be`=@ki_be,`Datum`=@datum WHERE `Diak_ID` = {diakid}";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@diakid",Program.Be_Ki_Iratkozas.textBox_IG_szam.Text);
             cmd.Parameters.AddWithValue("@altisk", altisk);
             cmd.Parameters.AddWithValue("@ki_be",Program.Be_Ki_Iratkozas.comboBox_ki_be.SelectedItem);
-            cmd.Parameters.AddWithValue("datum",Program.Be_Ki_Iratkozas.textBox_datum.Text);
+            cmd.Parameters.AddWithValue("@datum",Program.Be_Ki_Iratkozas.textBox_datum.Text);
             try
             {
                 if (cmd.ExecuteNonQuery() == 1)
@@ -253,12 +266,12 @@ namespace Zarodoga
             }
             Close();
         }
-        int dockID = 0;
+   
         public void Dock_Inser()
         {
             Kapcsolat();
             Open();
-
+            int dockID = 0;
             
             cmd.CommandText = "SELECT `DocK_ID` FROM `dokumentum` WHERE `Dock_Nev` = @dockid;";
             cmd.Parameters.Clear();
@@ -332,9 +345,22 @@ namespace Zarodoga
         {
             Kapcsolat();
             Open();
+            int dockID = 0;
+            cmd.CommandText = "SELECT `DocK_ID` FROM `dokumentum` WHERE `Dock_Nev` = @dockid;";
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@diakid1", Program.Dock_Form.textBox_ig_szam.Text);
-            cmd.CommandText = "UPDATE `dock` SET `Diak_ID`='@diakid',`Dock_ID`='@dockid' WHERE `Diak_ID` = @diakid1";
+            cmd.Parameters.AddWithValue("@dockid", Program.Dock_Form.comboBox_dock_nev.SelectedItem);
+            using (MySqlDataReader dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    dockID = dr.GetInt32("DocK_ID");
+
+                }
+            }
+
+            cmd.Parameters.Clear();
+            string diakid = Program.Dock_Form.textBox_ig_szam.Text;
+            cmd.CommandText = $"UPDATE `dock` SET `Diak_ID`=@diakid,`Dock_ID`=@dockid WHERE `Diak_ID`={diakid}";       
             cmd.Parameters.AddWithValue("@diakid",Program.Dock_Form.textBox_ig_szam.Text);
             cmd.Parameters.AddWithValue("@dockid",dockID);
             try
@@ -435,14 +461,15 @@ namespace Zarodoga
             Kapcsolat();
             Open();
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@diakid1", Program.AllDiak.textBoxigszam.Text);
-            cmd.CommandText = "UPDATE `diak` SET `Nev`='@nev',`Sz_Datum`='@szdatum',`Anyja_Sz_nev`='anyjasznev',`Diak_ID`='@diakid',`osztaly`='@osztaly' WHERE `Diak_ID` =@diakid1";
+            string diakid = Program.AllDiak.textBoxigszam.Text;
+            
+            cmd.CommandText = $"UPDATE `diak` SET `Nev`=@nev,`Sz_Datum`='@szdatum',`Anyja_Sz_nev`=@anyjasznev,`Diak_ID`=@diakid,`osztaly`=@osztaly WHERE `Diak_ID`={diakid}";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@nev",Program.AllDiak.textBox_nev.Text);
             cmd.Parameters.AddWithValue("@szdatum",Program.AllDiak.textBoxSzdatum.Text);
-            cmd.Parameters.AddWithValue("anyjasznev",Program.AllDiak.textBoxanyjanev.Text);
-            cmd.Parameters.AddWithValue("diakid",Program.AllDiak.textBoxigszam.Text);
-            cmd.Parameters.AddWithValue("osztaly",Program.AllDiak.textBoxosztaly.Text);
+            cmd.Parameters.AddWithValue("@anyjasznev",Program.AllDiak.textBoxanyjanev.Text);
+            cmd.Parameters.AddWithValue("@diakid",Program.AllDiak.textBoxigszam.Text);
+            cmd.Parameters.AddWithValue("@osztaly",Program.AllDiak.textBoxosztaly.Text);
             try
             {
                 if (cmd.ExecuteNonQuery() == 1)

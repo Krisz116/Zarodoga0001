@@ -64,7 +64,7 @@
             // 
             // textBoxSzdatum
             // 
-            this.textBoxSzdatum.Location = new System.Drawing.Point(325, 91);
+            this.textBoxSzdatum.Location = new System.Drawing.Point(325, 100);
             this.textBoxSzdatum.Name = "textBoxSzdatum";
             this.textBoxSzdatum.Size = new System.Drawing.Size(166, 20);
             this.textBoxSzdatum.TabIndex = 2;
