@@ -83,5 +83,15 @@ namespace Zarodoga
             textBox_nev.Text = "";
             comboBox_dock_nev.Text = "";
         }
+
+        private void button_back_Click(object sender, EventArgs e)
+        {
+            Program.Dock_Form.Close();
+        }
+
+        private void button_frissit_Click(object sender, EventArgs e)
+        {
+            dockUpdate();
+        }
     }
 }

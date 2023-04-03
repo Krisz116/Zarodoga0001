@@ -48,5 +48,10 @@ namespace Zarodoga
         {
             Program.Be_Ki_Iratkozas.ShowDialog();
         }
+
+        private void button_exit_Click(object sender, EventArgs e)
+        {
+            Program.Form1.Close();
+        }
     }
 }

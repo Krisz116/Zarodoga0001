@@ -112,5 +112,15 @@ namespace Zarodoga
             comboBox_isk_nev.Text = "";
             comboBox_ki_be.Text = "";
         }
+
+        private void button_back_Click(object sender, EventArgs e)
+        {
+            Program.Be_Ki_Iratkozas.Close();
+        }
+
+        private void button_frissit_Click(object sender, EventArgs e)
+        {
+            iratUpdate();
+        }
     }
 }

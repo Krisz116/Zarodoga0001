@@ -147,9 +147,11 @@ namespace Zarodoga
                 while (dr.Read())
                 {
                     altisk = dr.GetInt32("Isk_ID");
-
+                    
                 }
+               
             }
+
 
             cmd.CommandText = "INSERT INTO `be_ki_iratkozas`(`Diak_ID`, `Isk_ID`, `Ki_Be`, `Datum`) VALUES (@Diak_ID, @Isk_ID, @Ki_Be, @Datum)";
             cmd.Parameters.Clear();
@@ -354,9 +356,11 @@ namespace Zarodoga
                 while (dr.Read())
                 {
                     dockID = dr.GetInt32("DocK_ID");
-
+                   
                 }
+                
             }
+           
 
             cmd.Parameters.Clear();
             string diakid = Program.Dock_Form.textBox_ig_szam.Text;
@@ -462,13 +466,13 @@ namespace Zarodoga
             Open();
             cmd.Parameters.Clear();
             string diakid = Program.AllDiak.textBoxigszam.Text;
-            
-            cmd.CommandText = $"UPDATE `diak` SET `Nev`=@nev,`Sz_Datum`='@szdatum',`Anyja_Sz_nev`=@anyjasznev,`Diak_ID`=@diakid,`osztaly`=@osztaly WHERE `Diak_ID`={diakid}";
+            cmd.CommandText = $"UPDATE `diak` SET `Nev`=@nev,`Sz_Datum`=@szdatum,`Anyja_Sz_nev`=@anyjasznev,`Diak_ID`=@diakid,`osztaly`=@osztaly WHERE `Diak_ID`={diakid}";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@nev",Program.AllDiak.textBox_nev.Text);
             cmd.Parameters.AddWithValue("@szdatum",Program.AllDiak.textBoxSzdatum.Text);
             cmd.Parameters.AddWithValue("@anyjasznev",Program.AllDiak.textBoxanyjanev.Text);
             cmd.Parameters.AddWithValue("@diakid",Program.AllDiak.textBoxigszam.Text);
+
             cmd.Parameters.AddWithValue("@osztaly",Program.AllDiak.textBoxosztaly.Text);
             try
             {

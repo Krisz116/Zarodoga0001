@@ -89,5 +89,15 @@ namespace Zarodoga
                 textBoxosztaly.Text = kivalasztott_diak.Osztaly;
             }
         }
+
+        private void button_back_Click(object sender, EventArgs e)
+        {
+            Program.AllDiak.Close();
+        }
+
+        private void button_frissit_Click(object sender, EventArgs e)
+        {
+            diakUpdate();
+        }
     }
 }

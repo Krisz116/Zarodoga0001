@@ -44,6 +44,8 @@
             this.Töröl = new System.Windows.Forms.Button();
             this.Keres = new System.Windows.Forms.Button();
             this.button_kereses_torol = new System.Windows.Forms.Button();
+            this.button_back = new System.Windows.Forms.Button();
+            this.button_frissit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Lista
@@ -195,11 +197,34 @@
             this.button_kereses_torol.UseVisualStyleBackColor = true;
             this.button_kereses_torol.Click += new System.EventHandler(this.button_kereses_torol_Click);
             // 
+            // button_back
+            // 
+            this.button_back.Location = new System.Drawing.Point(674, 400);
+            this.button_back.Name = "button_back";
+            this.button_back.Size = new System.Drawing.Size(114, 38);
+            this.button_back.TabIndex = 16;
+            this.button_back.Text = "Vissza";
+            this.button_back.UseVisualStyleBackColor = true;
+            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            // 
+            // button_frissit
+            // 
+            this.button_frissit.Location = new System.Drawing.Point(554, 400);
+            this.button_frissit.Name = "button_frissit";
+            this.button_frissit.Size = new System.Drawing.Size(114, 38);
+            this.button_frissit.TabIndex = 17;
+            this.button_frissit.Text = "Frissítés";
+            this.button_frissit.UseVisualStyleBackColor = true;
+            this.button_frissit.Click += new System.EventHandler(this.button_frissit_Click);
+            // 
             // AllDiak
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_frissit);
+            this.Controls.Add(this.button_back);
             this.Controls.Add(this.button_kereses_torol);
             this.Controls.Add(this.Keres);
             this.Controls.Add(this.Töröl);
@@ -242,5 +267,7 @@
         public System.Windows.Forms.TextBox textBoxanyjanev;
         public System.Windows.Forms.TextBox textBoxigszam;
         public System.Windows.Forms.TextBox textBoxosztaly;
+        private System.Windows.Forms.Button button_back;
+        private System.Windows.Forms.Button button_frissit;
     }
 }
