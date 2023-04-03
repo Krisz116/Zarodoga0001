@@ -63,9 +63,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(230, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.Size = new System.Drawing.Size(118, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Diak IG Szam";
+            this.label1.Text = "Diak IG Szam *";
             // 
             // textBox_IG_szam
             // 
